@@ -28,20 +28,33 @@
 
 ---
 
-- [ ] 입력: 쉼표로 구분된 경주할 자동차들의 이름
-  - [ ] 쉼표로 마무리되지는 않는가 (endsWithComma)
-  - [ ] 자동차 이름에 문제가 없는가 (isLegalName)
-  - [ ] 중복되는 자동차 이름은 없는가 (isUniqueName)
-- [ ] Car 클래스 구현
+- [ ] Car: 자동차 클래스를 별도로 선언한다. 간단한 getter, setter를 포함한다.
+  - [ ] proceedCar(number): 랜덤한 숫자를 기준으로 전진할 지 말지를 결정한다.
+- [ ] CarRaceView
 
-  - [ ] 각 자동차의 이름(carName), 앞으로 전진하는 메소드(movesForward) 포함
+  - [ ] scanCarList<string>(): 경주를 시작하기 위해 차량 정보를 입력받아서 Controller에 전달한다.
+    - [ ] [Error] EndsWithComma: 쉼표로 마무리되는 지를 확인한다.
+    - [ ] [Error] IllegalName: 올바른 자동차 이름을 입력했는 지를 확인한다.
+    - [ ] [Error] DuplicateName: 같은 이름의 자동차가 있는 지를 확인한다.
+  - [ ] scanRoundNumber<number>(): 몇 회차까지 진행할 지에 대한 정보를 받는다.
+    - [ ] [Error] IllegalNumber: 올바른 숫자를 입력했는 지를 확인한다.
+    - [ ] [Error] NegativeInteger: 음이 아닌 정수를 입력했는 지를 확인한다.
+  - [ ] printRoundResult(carList): 매 회차마다 결과를 출력하기 위해 자동차 리스트를 받아 각자가 가진 정보를 출력할 수 있도록 한다.
+  - [ ] printRaceResult(winnerCarList): 우승한 자동차 목록을 받아서 우승자 목록을 출력한다.
 
-- [ ] 입력: 전진을 시도할 횟수
-  - [ ] 올바르지 않은 숫자를 입력하지는 않았는가 (isNumber)
-  - [ ] 음이아닌 정수를 입력했는가 (isNonNegativeInteger)
-- [ ] Race 클래스 구현
-  - [ ] 레이스에 참여하는 자동차 리스트(participantList)
-  - [ ] 출력: 차수마다, 각 차의 진행도를 파악할 수 있는 실행 결과 (printRaceResult)
-  - [ ] 출력: 우승자 안내 문구 (printWinner)
+- [ ] CarRaceModel
+
+  - [ ] carList: List<Car>: Car 객체를 포함하는, 경주에 참여하는 자동차 목록을 저장한다.
+    - [ ] getCarList<List<Car>>: 현재 경주에 참여하는 자동차들의 리스트를 반환한다.
+    - [ ] setCarList<List<Car>>: 경주에 참여하는 자동차의 리스트를 지정한다.
+  - [ ] raceRound: number: 경주를 몇 회차까지 진행하는 지를 결정한다.
+    - [ ] getRaceRound<number>
+  - [ ] currentRaceRound: number: 현재 경주를 몇 회차까지 진행했는 지를 저장한다.
+    - [ ] getCurrentRaceRound<number>
+
+- [ ] CarRaceController
+  - [ ] startRace(): 경주를 시작하기 전, 경주에 참여하는 자동차의 정보와 경주의 회차를 입력받으며 경주를 시작한다.
+  - [ ] proceedRound(): 한 회차를 진행한다. 각 자동차들이 전진을 결정하고 결과를 출력할 수 있도록 한다.
+  - [ ] endRace(): 경주를 마무리하며 우승자를 알아내고, 경주 결과를 출력할 수 있도록 한다.
 
 ---
