@@ -58,3 +58,70 @@ describe("자동차 경주", () => {
     await expect(app.run()).rejects.toThrow("[ERROR]");
   });
 });
+
+describe("커스텀 테스트 케이스", () => {
+  test("EndsWithComma", async () => {
+    // given
+    const inputs = ["name1,name2,"];
+    mockQuestions(inputs);
+
+    // when
+    const app = new App();
+    await app.run();
+
+    // then
+    await expect(app.run()).rejects.toThrow("[ERROR]");
+  });
+
+  test("IllegalName", async () => {
+    // given
+    const inputs = [" ,###,@@@,\\n"];
+    mockQuestions(inputs);
+
+    // when
+    const app = new App();
+    await app.run();
+
+    // then
+    await expect(app.run()).rejects.toThrow("[ERROR]");
+  });
+
+  test("DuplicateName", async () => {
+    // given
+    const inputs = ["name1,name2,name2"];
+    mockQuestions(inputs);
+
+    // when
+    const app = new App();
+    await app.run();
+
+    // then
+    await expect(app.run()).rejects.toThrow("[ERROR]");
+  });
+
+  test("IllegalNumber", async () => {
+    // given
+    const inputs = ["name1,name2,name2", "1.5"];
+    mockQuestions(inputs);
+
+    // when
+    const app = new App();
+    await app.run();
+
+    // then
+    await expect(app.run()).rejects.toThrow("[ERROR]");
+  });
+
+  test("NegativeInteger", async () => {
+    // given
+    const inputs = ["name1,name2,name2", "-1"];
+    mockQuestions(inputs);
+
+    // when
+    const app = new App();
+    await app.run();
+
+    // then
+    await expect(app.run()).rejects.toThrow("[ERROR]");
+  });
+});
