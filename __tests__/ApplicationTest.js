@@ -60,6 +60,30 @@ describe("자동차 경주", () => {
 });
 
 describe("커스텀 테스트 케이스", () => {
+  // 통과 케이스
+  test("기능 테스트", async () => {
+    // given
+    const MOVING_FORWARD = 4;
+    const STOP = 3;
+    const inputs = ["pobi,woni", "1"];
+    const logs = ["pobi : -", "woni : -", "최종 우승자 : pobi,woni"];
+    const logSpy = getLogSpy();
+
+    mockQuestions(inputs);
+    mockRandoms([MOVING_FORWARD, STOP]);
+
+    // when
+    const app = new App();
+    await app.run();
+
+    // then
+    logs.forEach((log) => {
+      expect(logSpy).toHaveBeenCalledWith(expect.stringContaining(log));
+    });
+  });
+
+
+  // 에러 케이스
   test("EndsWithComma", async () => {
     // given
     const inputs = ["name1,name2,"];
