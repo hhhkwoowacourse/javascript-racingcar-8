@@ -19,7 +19,7 @@ export default class CarRaceValidator {
 }
 
 function validateEndsWithComma(input) {
-  if (!input.endsWith(","))
+  if (input.endsWith(","))
     throw new Error("[ERROR] 쉼표로 마무리될 수 없습니다.");
 }
 
