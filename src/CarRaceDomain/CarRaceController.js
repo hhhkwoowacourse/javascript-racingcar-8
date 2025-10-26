@@ -1,9 +1,9 @@
 import CarRaceModel from "./CarRaceModel.js";
 import CarRaceView from "./CarRaceView.js";
 import CarRaceValidator from "./CarRaceValidator.js";
+import Car from "./Car.js";
 
 export default class CarRaceController {
-
   constructor() {
     this.model = new CarRaceModel();
     this.view = new CarRaceView();
@@ -12,15 +12,16 @@ export default class CarRaceController {
 
   startRace() {
     const carNameList = this.view.scanCarList();
-    
+    this.model.setCarList(carNameList);
 
     const roundNumber = this.view.scanRoundNumber();
+    this.model.setRaceRound(roundNumber);
+
+    this.model.setCurrentRaceRound(0);
   }
 
   proceedRound() {
-    for (const car of this.model.getCarList()) {
-      car.proceedCar();
-    }
+    for (const car of this.model.getCarList()) car.proceedCar();
     this.model.setCurrentRaceRound(this.model.getCurrentRaceRound() + 1);
   }
 
