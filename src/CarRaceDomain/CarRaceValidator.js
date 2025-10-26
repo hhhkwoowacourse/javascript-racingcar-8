@@ -9,6 +9,7 @@ export default class CarRaceValidator {
   // Validator for Round Number
   validateRoundNumber(roundNumberInput) {
     validateNaN(roundNumberInput);
+    validateInteger(roundNumberInput);
     validatePositiveNumber(roundNumberInput);
   }
 
@@ -34,6 +35,11 @@ function validateDuplicateName(input) {
 function validateNaN(input) {
   if (Number(input) === NaN)
     throw new Error("[ERROR] 올바른 숫자를 입력해주세요.");
+}
+
+function validateInteger(input) {
+  if (Number.isInteger(Number(input)) === false)
+    throw new Error("[ERROR] 정수를 입력해주세요.");
 }
 
 function validatePositiveNumber(input) {
