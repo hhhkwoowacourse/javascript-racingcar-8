@@ -32,11 +32,6 @@ function validateDuplicateName(input) {
     throw new Error("[ERROR] 중복된 자동차 이름이 있습니다.");
 }
 
-function validateNaN(input) {
-  if (Number(input) === NaN)
-    throw new Error("[ERROR] 올바른 숫자를 입력해주세요.");
-}
-
 function validateInteger(input) {
   if (Number.isInteger(Number(input)) === false)
     throw new Error("[ERROR] 정수를 입력해주세요.");
