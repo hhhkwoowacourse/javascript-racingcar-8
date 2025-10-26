@@ -8,7 +8,6 @@ export default class CarRaceValidator {
 
   // Validator for Round Number
   validateRoundNumber(roundNumberInput) {
-    validateNaN(roundNumberInput);
     validateInteger(roundNumberInput);
     validatePositiveNumber(roundNumberInput);
   }
