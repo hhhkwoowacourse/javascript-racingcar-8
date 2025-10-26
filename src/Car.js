@@ -18,7 +18,7 @@ export default class Car {
    * 랜덤한 수가 4보다 클 경우에 전진하는 함수
    */
   proceedCar() {
-    if (Random.pickNumberInRange(0, 10) >= 4) this.#position++;
+    if (Random.pickNumberInRange(0, 9) >= 4) this.#position++;
   }
 
   getName = () => this.#name;
