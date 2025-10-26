@@ -6,7 +6,7 @@ export default class Car {
 
   /**
    * 생성자 함수
-   * @param {string} name 
+   * @param {string} name
    * @param {number} postion
    */
   constructor(name) {
@@ -21,6 +21,6 @@ export default class Car {
     if (Random.pickNumberInRange(0, 9) >= 4) this.#position++;
   }
 
-  getName = () => this.name;
-  getPosition = () => this.position;
+  getName = () => this.#name;
+  getPosition = () => this.#position;
 }
