@@ -21,33 +21,35 @@
 
 ---
 
-- [X] Car: 자동차 클래스를 별도로 선언한다. 간단한 getter, setter를 포함한다.
+- [x] Car: 자동차 클래스를 별도로 선언한다. 간단한 getter, setter를 포함한다.
 
-  - [X] proceedCar(number): 랜덤한 숫자를 기준으로 전진할 지 말지를 결정한다.
-- [ ] CarRaceView
+  - [x] proceedCar(number): 랜덤한 숫자를 기준으로 전진할 지 말지를 결정한다.
 
-  - [ ] scanCarList`<string>`(): 경주를 시작하기 위해 차량 정보를 입력받아서 Controller에 전달한다.
-    - [ ] [Error] EndsWithComma: 쉼표로 마무리되는 지를 확인한다.
-    - [ ] [Error] IllegalName: 올바른 자동차 이름을 입력했는 지를 확인한다.
-    - [ ] [Error] DuplicateName: 같은 이름의 자동차가 있는 지를 확인한다.
-  - [ ] scanRoundNumber`<number>`(): 몇 회차까지 진행할 지에 대한 정보를 받는다.
-    - [ ] [Error] IllegalNumber: 올바른 숫자를 입력했는 지를 확인한다.
-    - [ ] [Error] NegativeInteger: 음이 아닌 정수를 입력했는 지를 확인한다.
-  - [ ] printRoundResult(carList): 매 회차마다 결과를 출력하기 위해 자동차 리스트를 받아 각자가 가진 정보를 출력할 수 있도록 한다.
-  - [ ] printRaceResult(winnerCarList): 우승한 자동차 목록을 받아서 우승자 목록을 출력한다.
-- [ ] CarRaceModel
+- [x] CarRaceView
 
-  - [ ] carList: List`<Car>`: Car 객체를 포함하는, 경주에 참여하는 자동차 목록을 저장한다.
-    - [ ] getCarList<List`<Car>`>: 현재 경주에 참여하는 자동차들의 리스트를 반환한다.
-    - [ ] setCarList<List`<Car>`>: 경주에 참여하는 자동차의 리스트를 지정한다.
-  - [ ] raceRound: number: 경주를 몇 회차까지 진행하는 지를 결정한다.
-    - [ ] getRaceRound`<number>`
-  - [ ] currentRaceRound: number: 현재 경주를 몇 회차까지 진행했는 지를 저장한다.
-    - [ ] getCurrentRaceRound`<number>`
-- [ ] CarRaceController
+  - [x] scanCarList `<string>`(): 경주를 시작하기 위해 차량 정보를 입력받아서 Controller에 전달한다.
+    - [x] [Error] EndsWithComma: 쉼표로 마무리되는 지를 확인한다.
+    - [x] [Error] DuplicateName: 같은 이름의 자동차가 있는 지를 확인한다.
+  - [x] scanRoundNumber `<number>`(): 몇 회차까지 진행할 지에 대한 정보를 받는다.
+    - [x] [Error] IllegalNumber: 올바른 숫자를 입력했는 지를 확인한다.
+    - [x] [Error] NegativeInteger: 음이 아닌 정수를 입력했는 지를 확인한다.
+  - [x] printRoundResult(carList): 매 회차마다 결과를 출력하기 위해 자동차 리스트를 받아 각자가 가진 정보를 출력할 수 있도록 한다.
+  - [x] printRaceResult(winnerCarList): 우승한 자동차 목록을 받아서 우승자 목록을 출력한다.
 
-  - [ ] startRace(): 경주를 시작하기 전, 경주에 참여하는 자동차의 정보와 경주의 회차를 입력받으며 경주를 시작한다.
-  - [ ] proceedRound(): 한 회차를 진행한다. 각 자동차들이 전진을 결정하고 결과를 출력할 수 있도록 한다.
-  - [ ] endRace(): 경주를 마무리하며 우승자를 알아내고, 경주 결과를 출력할 수 있도록 한다.
+- [x] CarRaceModel
+
+  - [x] carList: List `<Car>`: Car 객체를 포함하는, 경주에 참여하는 자동차 목록을 저장한다.
+    - [x] getCarList<List `<Car>`>: 현재 경주에 참여하는 자동차들의 리스트를 반환한다.
+    - [x] setCarList<List `<Car>`>: 경주에 참여하는 자동차의 리스트를 지정한다.
+  - [x] raceRound: number: 경주를 몇 회차까지 진행하는 지를 결정한다.
+    - [x] getRaceRound `<number>`
+  - [x] currentRaceRound: number: 현재 경주를 몇 회차까지 진행했는 지를 저장한다.
+    - [x] getCurrentRaceRound `<number>`
+
+- [x] CarRaceController
+
+  - [x] startRace(): 경주를 시작하기 전, 경주에 참여하는 자동차의 정보와 경주의 회차를 입력받으며 경주를 시작한다.
+  - [x] proceedRound(): 한 회차를 진행한다. 각 자동차들이 전진을 결정하고 결과를 출력할 수 있도록 한다.
+  - [x] endRace(): 경주를 마무리하며 우승자를 알아내고, 경주 결과를 출력할 수 있도록 한다.
 
 ---
