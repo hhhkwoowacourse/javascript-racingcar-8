@@ -19,6 +19,10 @@ export default class CarRaceView {
     return Number(rawRoundNumber);
   };
 
+  /**
+   * 해당 라운드의 자동차의 이름과 함께 위치를 출력합니다.
+   * @param {Car[]} carList
+   */
   printRoundResult(carList) {
     for (const car of carList) {
       Console.print(`${car.getName()} : ${"-".repeat(car.getPosition())}`);
@@ -32,11 +36,8 @@ export default class CarRaceView {
    */
   printRaceResult(winnerCarList) {
     let winnerCarName = "";
-
     for (let i = 0; i < winnerCarList.length; i++) {
       winnerCarName += winnerCarList[i].getName();
-
-      // 마지막 우승 자동차가 아닐 경우에만 컴마(,) 추가
       if (i !== winnerCarList.length - 1) winnerCarName += ",";
     }
     Console.print(winnerCarName);
