@@ -24,6 +24,13 @@ export default class CarRaceController {
     this.model.setCurrentRaceRound(this.model.getCurrentRaceRound() + 1);
   }
 
+  proceedRace() {
+    while (this.model.getCurrentRaceRound() < this.model.getRaceRound()) {
+      this.proceedRound();
+      this.view.printRoundResult(this.model.getCarList());
+    }
+  }
+
   endRace() {
     const carList = this.model.getCarList();
     let maxPosition = 0;
