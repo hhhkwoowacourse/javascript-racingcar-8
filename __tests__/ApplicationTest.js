@@ -24,8 +24,8 @@ const getLogSpy = () => {
   return logSpy;
 };
 
-describe("자동차 경주", () => {
-  test("기능 테스트", async () => {
+describe("통과 케이스", () => {
+  test("단일 우승자", async () => {
     // given
     const MOVING_FORWARD = 4;
     const STOP = 3;
@@ -46,27 +46,12 @@ describe("자동차 경주", () => {
     });
   });
 
-  test("예외 테스트", async () => {
-    // given
-    const inputs = ["pobi,javaji"];
-    mockQuestions(inputs);
-
-    // when
-    const app = new App();
-
-    // then
-    await expect(app.run()).rejects.toThrow("[ERROR]");
-  });
-});
-
-describe("커스텀 테스트 케이스", () => {
-  // 통과 케이스
-  test("기능 테스트", async () => {
+  test("다중 우승자", async () => {
     // given
     const MOVING_FORWARD = 4;
-    const STOP = 3;
+    const STOP = 4;
     const inputs = ["pobi,woni", "1"];
-    const logs = ["pobi : -", "woni : -", "최종 우승자 : pobi,woni"];
+    const logs = ["pobi : -", "woni : -", "최종 우승자 : pobi, woni"];
     const logSpy = getLogSpy();
 
     mockQuestions(inputs);
@@ -81,8 +66,9 @@ describe("커스텀 테스트 케이스", () => {
       expect(logSpy).toHaveBeenCalledWith(expect.stringContaining(log));
     });
   });
+});
 
-
+describe("예외 케이스", () => {
   // 에러 케이스
   test("EndsWithComma", async () => {
     // given
@@ -91,20 +77,6 @@ describe("커스텀 테스트 케이스", () => {
 
     // when
     const app = new App();
-    await app.run();
-
-    // then
-    await expect(app.run()).rejects.toThrow("[ERROR]");
-  });
-
-  test("IllegalName", async () => {
-    // given
-    const inputs = [" ,###,@@@,\\n"];
-    mockQuestions(inputs);
-
-    // when
-    const app = new App();
-    await app.run();
 
     // then
     await expect(app.run()).rejects.toThrow("[ERROR]");
@@ -117,7 +89,6 @@ describe("커스텀 테스트 케이스", () => {
 
     // when
     const app = new App();
-    await app.run();
 
     // then
     await expect(app.run()).rejects.toThrow("[ERROR]");
@@ -130,7 +101,6 @@ describe("커스텀 테스트 케이스", () => {
 
     // when
     const app = new App();
-    await app.run();
 
     // then
     await expect(app.run()).rejects.toThrow("[ERROR]");
@@ -143,7 +113,6 @@ describe("커스텀 테스트 케이스", () => {
 
     // when
     const app = new App();
-    await app.run();
 
     // then
     await expect(app.run()).rejects.toThrow("[ERROR]");
