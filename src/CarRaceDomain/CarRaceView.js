@@ -1,6 +1,6 @@
 import { Console } from "@woowacourse/mission-utils";
 
-import Car from "./Car.js";
+import Car from "../Car.js";
 import CarRaceValidator from "./CarRaceValidator.js";
 
 export default class CarRaceView {
