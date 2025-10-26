@@ -1,9 +1,9 @@
-import CarRaceController from "./CarRaceDomain/CarRaceController";
+import CarRaceController from "./CarRaceDomain/CarRaceController.js";
 
 class App {
   async run() {
-    let CarRace = new CarRaceController(new CarRaceModel(), new CarRaceView());
-    CarRace.startRace();
+    let CarRace = new CarRaceController();
+    await CarRace.startRace();
     CarRace.proceedRace();
     CarRace.endRace();
   }

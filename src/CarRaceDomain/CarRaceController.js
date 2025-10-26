@@ -1,7 +1,6 @@
 import CarRaceModel from "./CarRaceModel.js";
 import CarRaceView from "./CarRaceView.js";
 import CarRaceValidator from "./CarRaceValidator.js";
-import Car from "./Car.js";
 
 export default class CarRaceController {
   constructor() {
@@ -10,15 +9,15 @@ export default class CarRaceController {
     this.validator = new CarRaceValidator();
   }
 
-  startRace() {
-    const carNameList = this.view.scanCarList();
+  startRace = async () => {
+    const carNameList = await this.view.scanCarList();
     this.model.setCarList(carNameList);
 
-    const roundNumber = this.view.scanRoundNumber();
+    const roundNumber = await this.view.scanRoundNumber();
     this.model.setRaceRound(roundNumber);
 
     this.model.setCurrentRaceRound(0);
-  }
+  };
 
   proceedRound() {
     for (const car of this.model.getCarList()) car.proceedCar();
@@ -26,6 +25,7 @@ export default class CarRaceController {
   }
 
   proceedRace() {
+    this.view.printResultTitle();
     while (this.model.getCurrentRaceRound() < this.model.getRaceRound()) {
       this.proceedRound();
       this.view.printRoundResult(this.model.getCarList());
