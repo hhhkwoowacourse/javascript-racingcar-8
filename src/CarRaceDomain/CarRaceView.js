@@ -8,16 +8,25 @@ export default class CarRaceView {
     this.validator = new CarRaceValidator();
   }
 
-  scanCarList = () => {
-    const rawCarList = Console.readLineAsync();
+  scanCarList = async () => {
+    const rawCarList = await Console.readLineAsync(
+      "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n"
+    );
     this.validator.validateCarList(rawCarList);
     return rawCarList.split(",");
   };
-  scanRoundNumber = () => {
-    const rawRoundNumber = Console.readLineAsync();
+
+  scanRoundNumber = async () => {
+    const rawRoundNumber = await Console.readLineAsync(
+      "시도할 횟수는 몇 회인가요?\n"
+    );
     this.validator.validateRoundNumber(rawRoundNumber);
     return Number(rawRoundNumber);
   };
+
+  printResultTitle() {
+    Console.print("실행 결과");
+  }
 
   /**
    * 해당 라운드의 자동차의 이름과 함께 위치를 출력합니다.
@@ -27,7 +36,7 @@ export default class CarRaceView {
     for (const car of carList) {
       Console.print(`${car.getName()} : ${"-".repeat(car.getPosition())}`);
     }
-    Console.print();
+    Console.print("");
   }
 
   /**
@@ -38,8 +47,8 @@ export default class CarRaceView {
     let winnerCarName = "";
     for (let i = 0; i < winnerCarList.length; i++) {
       winnerCarName += winnerCarList[i].getName();
-      if (i !== winnerCarList.length - 1) winnerCarName += ",";
+      if (i !== winnerCarList.length - 1) winnerCarName += ", ";
     }
-    Console.print(winnerCarName);
+    Console.print(`최종 우승자 : ${winnerCarName}`);
   }
 }
