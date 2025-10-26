@@ -1,18 +1,22 @@
 import { Console } from "@woowacourse/mission-utils";
+
 import Car from "./Car.js";
+import CarRaceValidator from "./CarRaceValidator.js";
 
 export default class CarRaceView {
-  constructor() {}
+  constructor() {
+    this.validator = new CarRaceValidator();
+  }
 
   scanCarList = () => {
     const rawCarList = Console.readLineAsync();
-    validateCarList(rawCarList);
+    this.validator.validateCarList(rawCarList);
     return rawCarList.split(",");
   };
   scanRoundNumber = () => {
     const rawRoundNumber = Console.readLineAsync();
-    validateRoundNumber(rawRoundNumber);
-    return rawRoundNumber;
+    this.validator.validateRoundNumber(rawRoundNumber);
+    return Number(rawRoundNumber);
   };
 
   printRoundResult(carList) {
@@ -36,18 +40,5 @@ export default class CarRaceView {
       if (i !== winnerCarList.length - 1) winnerCarName += ",";
     }
     Console.print(winnerCarName);
-  }
-
-  // Validator
-  validateCarList(carListInput) {
-    try {
-      const carList = carListInput.split(",");
-      
-    } catch {}
-  }
-
-  validateRoundNumber(roundNumberInput) {
-    try {
-    } catch {}
   }
 }
