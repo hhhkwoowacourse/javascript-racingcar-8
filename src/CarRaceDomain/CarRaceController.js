@@ -1,20 +1,20 @@
 import CarRaceModel from "./CarRaceModel.js";
 import CarRaceView from "./CarRaceView.js";
+import CarRaceValidator from "./CarRaceValidator.js";
 
 export default class CarRaceController {
-  /**
-   *
-   * @param {CarRaceModel} model
-   * @param {CarRaceView} view
-   */
-  constructor(model, view) {
-    this.model = model;
-    this.view = view;
+
+  constructor() {
+    this.model = new CarRaceModel();
+    this.view = new CarRaceView();
+    this.validator = new CarRaceValidator();
   }
 
   startRace() {
-    this.view.scanCarList();
-    this.view.scanRoundNumber();
+    const carNameList = this.view.scanCarList();
+    
+
+    const roundNumber = this.view.scanRoundNumber();
   }
 
   proceedRound() {
